@@ -2,7 +2,7 @@ package com.kumarmanoj.ecommerce.service;
 
 import com.kumarmanoj.ecommerce.model.Category;
 import com.kumarmanoj.ecommerce.model.Product;
-import com.kumarmanoj.ecommerce.productDTO.ProductDTO;
+import com.kumarmanoj.ecommerce.dto.productDTO.ProductDTO;
 import com.kumarmanoj.ecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,7 @@ package com.kumarmanoj.ecommerce.controller;
 import com.kumarmanoj.ecommerce.common.ApiResponse;
 import com.kumarmanoj.ecommerce.model.Category;
 import com.kumarmanoj.ecommerce.model.Product;
-import com.kumarmanoj.ecommerce.productDTO.ProductDTO;
+import com.kumarmanoj.ecommerce.dto.productDTO.ProductDTO;
 import com.kumarmanoj.ecommerce.repository.CategoryRepository;
 import com.kumarmanoj.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
