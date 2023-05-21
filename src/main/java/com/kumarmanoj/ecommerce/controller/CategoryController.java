@@ -22,7 +22,6 @@ public class CategoryController {
     @RequestMapping(path="/create", method = RequestMethod.POST)
     public ResponseEntity<Category> createCategory(@Valid @RequestBody Category category) {
         Category newCategory = categoryService.createCategory(category);
-//        ApiResponse apiResponse = new ApiResponse(true, "created a new Category");
         return new ResponseEntity<Category>(newCategory, HttpStatus.CREATED);
     }
     @RequestMapping(path="/categoryList", method = RequestMethod.GET)
@@ -30,7 +29,7 @@ public class CategoryController {
         List<Category> categoryList = categoryService.getAllCategory();
         return new ResponseEntity<List<Category>>(categoryList, HttpStatus.OK);
     }
-    @RequestMapping(path = "/update/{categoryId}", method = RequestMethod.POST)
+    @RequestMapping(path = "/update/{categoryId}", method = RequestMethod.PUT)
     public ResponseEntity<Category> updateCategory(@PathVariable Integer categoryId, @RequestBody Category category) {
         Category updatedCategory = categoryService.updateCategory(categoryId, category);
         return new ResponseEntity<Category>(updatedCategory, HttpStatus.OK);
