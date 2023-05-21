@@ -1,14 +1,12 @@
 package com.kumarmanoj.ecommerce.controller;
 
+import com.kumarmanoj.ecommerce.common.ApiResponse;
 import com.kumarmanoj.ecommerce.model.Category;
 import com.kumarmanoj.ecommerce.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,14 +22,17 @@ public class CategoryController {
     @RequestMapping(path="/create", method = RequestMethod.POST)
     public ResponseEntity<Category> createCategory(@Valid @RequestBody Category category) {
         Category newCategory = categoryService.createCategory(category);
+//        ApiResponse apiResponse = new ApiResponse(true, "created a new Category");
         return new ResponseEntity<Category>(newCategory, HttpStatus.CREATED);
     }
-
     @RequestMapping(path="/categoryList", method = RequestMethod.GET)
     public ResponseEntity<List<Category>> getAllCategory() {
         List<Category> categoryList = categoryService.getAllCategory();
         return new ResponseEntity<List<Category>>(categoryList, HttpStatus.OK);
     }
-
-
+    @RequestMapping(path = "/update/{categoryId}", method = RequestMethod.POST)
+    public ResponseEntity<Category> updateCategory(@PathVariable Integer categoryId, @RequestBody Category category) {
+        Category updatedCategory = categoryService.updateCategory(categoryId, category);
+        return new ResponseEntity<Category>(updatedCategory, HttpStatus.OK);
+    }
 }
