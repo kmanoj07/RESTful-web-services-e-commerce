@@ -25,7 +25,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    private ProductDTO getProductDTO(Product product) {
+    public ProductDTO getProductDTO(Product product) {
         ProductDTO productDTO = new ProductDTO();
         productDTO.setProductName(product.getProductName());
         productDTO.setDescription(product.getDescription());
