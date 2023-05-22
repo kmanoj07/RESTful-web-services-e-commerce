@@ -1,5 +1,6 @@
 package com.kumarmanoj.ecommerce.service;
 
+import com.kumarmanoj.ecommerce.exceptions.ProductNotExistsException;
 import com.kumarmanoj.ecommerce.model.Category;
 import com.kumarmanoj.ecommerce.model.Product;
 import com.kumarmanoj.ecommerce.dto.productDTO.ProductDTO;
@@ -58,5 +59,13 @@ public class ProductService {
         product.setDescription(productDTO.getDescription());
         product.setImageUrl(productDTO.getImageUrl());
         return productRepository.save(product);
+    }
+
+    public Product findById(Integer productId) throws ProductNotExistsException {
+       Optional<Product> optionalProduct = productRepository.findById(productId);
+       if(optionalProduct.isEmpty()) {
+            throw new ProductNotExistsException("product is invalid " + productId );
+       }
+       return optionalProduct.get();
     }
 }

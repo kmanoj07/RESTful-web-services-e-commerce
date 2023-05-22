@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "pai/v1/wishlist")
+@RequestMapping(path = "api/v1/wishlist")
 public class WishListController {
 
     @Autowired private WishListService wishListService;
