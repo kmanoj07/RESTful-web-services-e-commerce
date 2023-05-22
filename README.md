@@ -1,4 +1,4 @@
-# E-commerce App API Backend/Documentation
+# E-commerce App API Backend
 
 ## Application Tier
 - Language: Java
